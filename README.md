@@ -18,6 +18,8 @@ Supports only 9600 baudrate in Normal speed for now.
 - AVR-GCC toolchain
 - AVRDUDE for programming the microcontroller
 - Serial terminal software (e.g., PuTTY, minicom)
+## Class
+- Serial
 ## Fucntions
 - void write() => to write byte
 - bool available() => check if serial data is available
@@ -25,7 +27,7 @@ Supports only 9600 baudrate in Normal speed for now.
 - void print() => write char to serial
 - void println() => write char to serial with newline and carriage return
 - void readString() => to read data from serial to     buffer 
-- void readStringUntil(char terminator, char* buffer, uint8_t maxLength) => read data until a terminatior ('\n', '\r') received
+- void readStringUntil() => read data until a terminatior ('\n', '\r') received
 
 ## Setup
 
