@@ -3,6 +3,9 @@
 
 This project demonstrates how to use a serial library with an AVR microcontroller. The program reads a string from the serial port and prints it back. It waits until a string is received and then prints the received string back to the serial port.
 
+## Message
+Supports only 9600 baudrate in Normal speed for now.
+
 ## Author
 
 - **Ramesh Saud aKa oggy**
