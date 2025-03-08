@@ -24,8 +24,8 @@ Supports only 9600 baudrate in Normal speed for now.
 - void write() => to write byte
 - bool available() => check if serial data is available
 - uint8_t read() => to read byte
-- void print() => write char to serial
-- void println() => write char to serial with newline and carriage return
+- void print() => write char to serial, integer and floating type
+- void println() => write char(only char) to serial with newline and carriage return
 - void readString() => to read data from serial to     buffer 
 - void readStringUntil() => read data until a terminatior ('\n', '\r') received
 
