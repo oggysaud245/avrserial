@@ -66,7 +66,21 @@ void Serial::readStringUntil(char terminator, char* buffer, uint8_t maxLength) {
     }
     buffer[index] = '\0'; // Null-terminate the string
 }
+template <typename T>
+typename enable_if<is_integral<T>::value, void>::type
+Serial::print(T data) {
+    char buffer[32]; // Increased buffer size to 32
+    itoa(data, buffer, 10);
+    print(buffer);
+}
 
+template <typename T>
+typename enable_if<is_floating_point<T>::value, void>::type
+Serial::print(T data) {
+    char buffer[32];
+    dtostrf(data, 6, 2, buffer); // Convert float/double to string
+    print(buffer);
+}
 void Serial::print(char* str) {
     while (*str) {
         write((uint8_t)*str++);
@@ -79,3 +93,10 @@ void Serial::println(char* str) {
     write((uint8_t)'\n');
     write((uint8_t)'\r');
 }
+// Explicit template instantiations
+template void Serial::print<int>(int);
+template void Serial::print<unsigned int>(unsigned int);
+template void Serial::print<long>(long);
+template void Serial::print<unsigned long>(unsigned long);
+template void Serial::print<float>(float);
+template void Serial::print<double>(double);

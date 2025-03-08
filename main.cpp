@@ -26,6 +26,8 @@ int main(void) {
             serial.readString(message, BUFFER_SIZE);
             serial.println(message);
         }
+        serial.print(10.50);
+        _delay_ms(1000);
  
     }
 
