@@ -19,15 +19,31 @@
 #include "./lib/serial.h"
 #define     BUFFER_SIZE     64
 Serial serial((uint16_t)9600);
+char* mesage = (char*)"This is serial communication test";
 int main(void) {
-    char message[BUFFER_SIZE];
+    char rxmessage[BUFFER_SIZE];
+    serial.println(mesage);
+    _delay_ms(2000);
     while (1) {
         if(serial.available()){
-            serial.readString(message, BUFFER_SIZE);
-            serial.println(message);
-        }
-        serial.print(10.50);
+            serial.readString(rxmessage, BUFFER_SIZE);
+            serial.println(rxmessage);
+        }else{
+        serial.print((char*) "This is char value");
+        serial.println();
+        serial.print((char*) "This is int value: ");
+        serial.print(255);
+        serial.println();
+        serial.print((char*) "This is float value: ");  
+        serial.print(100.50);
+        serial.println();
+        serial.print((char*) "This is a double value: ");
+        serial.print(65268.50);
+        serial.println();
+        serial.print((char*) "---------------------------------");
+        serial.println();
         _delay_ms(1000);
+    }
  
     }
 

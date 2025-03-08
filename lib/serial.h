@@ -88,7 +88,7 @@ public:
     template <typename T>
     typename enable_if<is_floating_point<T>::value, void>::type print(T data);
     void print(char* str);
-    void println(char* str);
+    void println(char* str = (char* )"\n");
     void readString(char* buffer, uint8_t maxLength);
     void readStringUntil(char terminator, char* buffer, uint8_t maxLength);
 
